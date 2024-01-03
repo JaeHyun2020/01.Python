@@ -1,5 +1,6 @@
 import streamlit as st 
 import pandas as pd 
+import time
 
 st.title('Title')
 
@@ -30,3 +31,11 @@ st.title('데이터프레임 튜토리얼')
 st.dataframe(dataframe, use_container_width=False)
 
 st.table(dataframe)
+
+with st.sidebar:
+    with st.echo():
+        st.write('This code will be printed to the sidebar.')
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")
